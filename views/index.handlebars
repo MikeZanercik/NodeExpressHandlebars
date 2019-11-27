@@ -1,0 +1,28 @@
+<h1>EAT DA BURGER</h1>
+
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each quotes}}
+  	<li>
+  		<p><span class="label">ID:</span> {{id}}</p>
+      <p><span class="label">Quote:</span> {{.quote}}</p>
+      <p><span class="label">Author:</span> {{.author}}</p>
+
+      <button data-id="{{.id}}" class="delquote">Devour</button>
+
+      
+  	</li>
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="quo">Quote:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
