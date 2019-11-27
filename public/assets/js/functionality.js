@@ -1,4 +1,3 @@
-
 $(function () {
     $(".devour").on("click", function (event) {
         const id = $(this).data("id");
@@ -16,10 +15,7 @@ $(function () {
 
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
-
-        const newBurger = $("#burger").val().trim()
-
-
+        const newBurger = $("#burgers").val().trim()
         // send post request
         $.ajax("/api/burgers", {
             type: "POST",

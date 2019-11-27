@@ -2,14 +2,11 @@
 
 <!-- Pass in data from server.js -->
 <ul>
-  {{#each quotes}}
+  {{#each burgers}}
   	<li>
-  		<p><span class="label"></span> {{burger}}</p>
-      
+  		<p><span class="label"></span> {{burgers}}</p>
 
       <button data-id="{{id}}" class="devour">Devour</button>
-
-      
   	</li>
   {{/each}}
 </ul>
@@ -19,8 +16,8 @@
 <form class="create-form">
 
   <div class="form-group">
-    <label for="quo">Burger:</label>
-    <textarea id="burger" name="burger" rows="8" cols="40"></textarea>
+    <label for="burgers">Burger:</label>
+    <textarea id="burgers" name="burgers" rows="8" cols="40"></textarea>
   </div>
 
   <button type="submit">Add Burger</button>
