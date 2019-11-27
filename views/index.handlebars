@@ -4,11 +4,10 @@
 <ul>
   {{#each quotes}}
   	<li>
-  		<p><span class="label">ID:</span> {{id}}</p>
-      <p><span class="label">Quote:</span> {{.quote}}</p>
-      <p><span class="label">Author:</span> {{.author}}</p>
+  		<p><span class="label"></span> {{burger}}</p>
+      
 
-      <button data-id="{{.id}}" class="delquote">Devour</button>
+      <button data-id="{{id}}" class="devour">Devour</button>
 
       
   	</li>
@@ -20,8 +19,8 @@
 <form class="create-form">
 
   <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+    <label for="quo">Burger:</label>
+    <textarea id="burger" name="burger" rows="8" cols="40"></textarea>
   </div>
 
   <button type="submit">Add Burger</button>
