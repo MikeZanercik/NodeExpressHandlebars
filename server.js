@@ -1,40 +1,42 @@
-const exphbs = require("express-handlebars");
-const express = require("express");
-const mysql = require("mysql");
+var exphbs = require("express-handlebars");
+var express = require("express");
+var mysql = require("mysql");
 
-const app = express();
+var app = express();
 
-//Set up port
-const PORT = process.env.PORT || 8080
+// Set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var PORT = process.env.PORT || 8080;
 
+// Use the express.static middleware to serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
-//express app to handle data parsing
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "rootroot",
-    database: "burgers_db"
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "rootroot",
+  database: "burgers_db"
 });
 
-connection.connect(function (err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-    console.log("connected as id " + connection.threadId);
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
 });
 
 // get all burgers from db
 app.get("/", (req, res) => {
-    connection.query("SELECT * FROM burgers;", (err, data) => {
+    connection.query("SELECT * FROM burgers", (err, data) => {
         if (err) {
             return res.status(500).end();
         }
@@ -43,8 +45,8 @@ app.get("/", (req, res) => {
 });
 
 //add a burger
-app.post("/api/burgers", function (req, res) {
-    connection.query("INSERT INTO burgers (burger_name) VALUES ?", [req.body.burgers], function (
+app.post("/api/burgers", (req, res) => {
+    connection.query("INSERT INTO burgers (burger_name) VALUES ?", [req.body.burger], function (
         err,
         result
     ) {
@@ -59,8 +61,8 @@ app.post("/api/burgers", function (req, res) {
 });
 
 // devour a burger
-app.delete("/api/burgers/:id", function (req, res) {
-    connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function (err, result) {
+app.delete("/api/burgers/:id",  (req, res) => {
+    connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], (err, result) => {
         if (err) {
             // If an error occurred, send a generic server failure
             return res.status(500).end();

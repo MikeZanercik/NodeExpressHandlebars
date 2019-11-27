@@ -15,7 +15,10 @@ $(function () {
 
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
-        const newBurger = $("#burgers").val().trim()
+        const newBurger ={
+           burger: $("#burgers").val().trim()
+        } 
+            
         // send post request
         $.ajax("/api/burgers", {
             type: "POST",
