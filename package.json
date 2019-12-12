@@ -1,25 +1,14 @@
 {
   "name": "nodeexpresshandlebars",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MikeZanercik/NodeExpressHandlebars.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MikeZanercik/NodeExpressHandlebars/issues"
-  },
-  "homepage": "https://github.com/MikeZanercik/NodeExpressHandlebars#readme",
+  "description": "eat hamburgers",
+  "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "mysql": "^2.17.1"
+     "express": "^4.17.1",
+     "express-handlebars": "^3.1.0",
+     "mysql": "^2.17.1"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
