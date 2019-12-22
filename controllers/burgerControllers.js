@@ -4,12 +4,13 @@ const burger = require("../models/burgers.js");
 
 //routes
 router.get("/", function(req, res) {
+  console.log(req.body)
   burger.all(function(data) {
-   
-     const burgers = data
-    
-    console.log(burgers);
-    res.render("index", burgers);
+    const hbsObject = {
+      burgers: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
